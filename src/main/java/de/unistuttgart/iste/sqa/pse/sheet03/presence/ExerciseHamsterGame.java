@@ -6,8 +6,8 @@ import java.io.PrintStream;
 /**
  * Please describe this class here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author MarvinSpiegel, IsmailRatni
+ * @version 07.11.2023
  */
 public final class ExerciseHamsterGame extends InternalExerciseHamsterGame {
 	/**
@@ -18,7 +18,25 @@ public final class ExerciseHamsterGame extends InternalExerciseHamsterGame {
 	@Override
 	protected void hamsterRun() {
 		final Territory territory = game.getTerritory();
-		// TODO: Implement me!
+		paule.write("TotalGrainCount: " + territory.getTotalGrainCount());
+		paule.write("TotalHamsterCount: " + territory.getTotalHamsterCount());
+		paule.write("Territory Width: " + territory.getTerritorySize().getColumnCount()
+				+ " Territory Height: " + territory.getTerritorySize().getRowCount());
+		turnRight();
+		moveDown();
+		paule.write("Grain Count: " + territory.getTotalGrainCount());
+	}
 
+	private void moveDown() {
+		while (!paule.grainAvailable()) {
+			paule.move();
+		}
+		paule.pickGrain();
+	}
+
+	private void turnRight() {
+		paule.turnLeft();
+		paule.turnLeft();
+		paule.turnLeft();
 	}
 }

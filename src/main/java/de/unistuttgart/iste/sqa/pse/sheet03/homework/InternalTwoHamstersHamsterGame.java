@@ -30,6 +30,8 @@ public abstract class InternalTwoHamstersHamsterGame extends InspectableSimpleHa
 	protected void run() {
 		hamsterRun();
 		game.stopGame();
+		paule.mouthEmpty();
+		paule.getLocation();
 	}
 
 	/**
